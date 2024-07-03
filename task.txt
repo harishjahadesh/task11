@@ -1,0 +1,44 @@
+1) db.Products.find({});
+
+
+2)db.Products.find({
+    ProductPrice: { $gte: 400, $lte: 800 }
+});
+
+
+3)db.Products.find({
+    $or: [
+        { ProductPrice: { $lt: 400 } },
+        { ProductPrice: { $gt: 600 } }
+    ]
+});
+
+
+4)db.Products.find({
+    ProductPrice: { $gt: 500 }
+}).limit(4);
+
+
+5)db.Products.find({}, { ProductName: 1, ProductMaterial: 1, _id: 0 });
+
+
+6)db.Products.findOne({ RowID: 10 });
+
+
+7)db.Products.find({}, { ProductName: 1, ProductMaterial: 1, _id: 0 });
+
+
+8)db.Products.find({
+    ProductMaterial: { $regex: /soft/, $options: 'i' }
+});
+
+
+9)db.Products.find({
+    ProductColor: "indigo",
+    ProductPrice: 492.00
+});
+
+
+10)db.Products.deleteMany({
+    ProductPrice: 28
+});
